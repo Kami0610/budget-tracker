@@ -76,7 +76,7 @@ def get_colors(main_value, check_value, percent=1, reverse=False):
 
 
 def format_2f(input_number):
-    return '{:.2f}'.format(input_number)
+    return '{:,.2f}'.format(input_number)
 
 
 def format_to_float(input_string):
