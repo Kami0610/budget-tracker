@@ -254,7 +254,7 @@ class BudgetTrackerApp:
             return 0
 
         # If expense is not negative, make it negative
-        if item_cost > 0:
+        if item_cost > 0 and item_name not in const.INCOME_KEYWORDS:
             item_cost = (item_cost * -1)
 
         # Save data
@@ -266,7 +266,10 @@ class BudgetTrackerApp:
         self.ent_item.delete(0, tk.END)
         self.ent_cost.delete(0, tk.END)
 
-        self.mon_spend -= item_cost
+        if item_name not in const.INCOME_KEYWORDS:
+            self.mon_spend -= item_cost
+        else:
+            self.ttl_income += item_cost
         self.curr_bal += item_cost
         self.window_updater()
 
