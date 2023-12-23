@@ -1,6 +1,6 @@
 import csv
 import json
-import os.path
+import os
 import pathlib
 from datetime import date
 
@@ -22,7 +22,7 @@ def init_user_dat(file_path=None):
 
 def init_directories():
     if not check_dir(const.DIR_DATA):
-        os.mkdir(const.DIR_DATA)
+        os.makedirs(const.DIR_DATA)
 
 
 def parse_date(input_date):
@@ -35,7 +35,7 @@ def parse_date(input_date):
 
 
 def check_dir(dir_path):
-    return pathlib.Path(dir_path).is_dir()
+    return os.path.exists(dir_path)
 
 
 def check_file(file_path):
