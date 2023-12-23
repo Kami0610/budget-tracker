@@ -308,7 +308,7 @@ class BudgetTrackerApp:
     def validate_monthly_budget(self):
         month_budget = self.ent_spend.get()
         if not month_budget:
-            messagebox.showwarning('Error', 'Please input your income.')
+            messagebox.showwarning('Error', 'Please input your monthly budget.')
             return 0
         try:
             month_budget = float(month_budget)
@@ -330,7 +330,7 @@ class BudgetTrackerApp:
     def validate_goal(self):
         goal = self.ent_goal.get()
         if not goal:
-            messagebox.showwarning('Error', 'Please input your income.')
+            messagebox.showwarning('Error', 'Please input your desired goal.')
             return 0
         try:
             goal = float(goal)
@@ -352,7 +352,7 @@ class BudgetTrackerApp:
     def validate_save_percent(self):
         save_amount = self.ent_saving.get()
         if not save_amount:
-            messagebox.showwarning('Error', 'Please input your income.')
+            messagebox.showwarning('Error', 'Please input a percentage to save 0~100.')
             return 0
         try:
             save_amount = float(save_amount)
