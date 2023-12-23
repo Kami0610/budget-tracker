@@ -103,6 +103,7 @@ class BudgetTrackerApp:
         if self.save_goal != 0:
             self.goal_percent_calc = int(((self.curr_bal - self.saving_amount) / self.save_goal) * 100)
             self.goal_percent_calc = max(self.goal_percent_calc, 0)
+            self.goal_percent_calc = min(self.goal_percent_calc, 100)
         else:
             self.goal_percent_calc = 0
         self.lbl_goal_value = tk.Label(
@@ -229,6 +230,7 @@ class BudgetTrackerApp:
         if self.save_goal != 0:
             self.goal_percent_calc = int(((self.curr_bal - self.saving_amount) / self.save_goal) * 100)
             self.goal_percent_calc = max(self.goal_percent_calc, 0)
+            self.goal_percent_calc = min(self.goal_percent_calc, 100)
         else:
             self.goal_percent_calc = 0
         self.lbl_goal_value.config(text=f'{self.goal_percent_calc}%')
