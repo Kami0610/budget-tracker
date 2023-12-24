@@ -9,7 +9,8 @@ import constants as const
 
 def init_user_dat(file_path=None):
     if file_path is None:
-        file_path = os.path.join(const.DIR_DATA, const.FILE_JSON_USER)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, const.DIR_DATA, const.FILE_JSON_USER)
 
     user_dat = {
         'goal': const.USER_SAVE_GOAL,
@@ -21,8 +22,10 @@ def init_user_dat(file_path=None):
 
 
 def init_directories():
-    if not check_dir(const.DIR_DATA):
-        os.makedirs(const.DIR_DATA)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    all_dir = os.path.join(script_dir, const.DIR_DATA)
+    if not check_dir(all_dir):
+        os.makedirs(all_dir)
 
 
 def parse_date(input_date):
@@ -103,7 +106,8 @@ def format_listbox_view(track_item, track_cost, track_date=None):
 
 def load_user_dat(file_path=None):
     if file_path is None:
-        file_path = os.path.join(const.DIR_DATA, const.FILE_JSON_USER)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, const.DIR_DATA, const.FILE_JSON_USER)
     if not check_file(file_path):
         init_user_dat(file_path)
 
@@ -115,7 +119,8 @@ def load_user_dat(file_path=None):
 
 def load_tracker(file_path=None):
     if file_path is None:
-        file_path = os.path.join(const.DIR_DATA, const.FILE_CSV_TRACKER)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, const.DIR_DATA, const.FILE_CSV_TRACKER)
     if not check_file(file_path):
         return []
 
@@ -130,7 +135,8 @@ def load_tracker(file_path=None):
 
 def save_tracker(item_name, item_cost, file_path=None):
     if file_path is None:
-        file_path = os.path.join(const.DIR_DATA, const.FILE_CSV_TRACKER)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, const.DIR_DATA, const.FILE_CSV_TRACKER)
 
     dat_list = [get_today(), item_name, item_cost]
     with open(file_path, 'a+', newline='', encoding='utf-8') as csv_file:
@@ -141,7 +147,8 @@ def save_tracker(item_name, item_cost, file_path=None):
 
 def update_user_data(dict_key, dict_val, file_path=None):
     if file_path is None:
-        file_path = os.path.join(const.DIR_DATA, const.FILE_JSON_USER)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, const.DIR_DATA, const.FILE_JSON_USER)
 
     with open(file_path, 'r') as json_file:
         json_data = json.load(json_file)

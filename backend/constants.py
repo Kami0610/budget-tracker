@@ -1,5 +1,5 @@
 # Directories and file names
-DIR_DATA = '../data/'
+DIR_DATA = './data/'
 FILE_CSV_TRACKER = 'tracker.csv'
 FILE_JSON_USER = 'user_data.json'
 
